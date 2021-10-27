@@ -1,16 +1,16 @@
 
 import './App.css';
-import React from "react";
+
+import {useState,useEffect} from "react";
 import axios from 'axios';
 import DisplayCharacter from './DisplayCharacter';
+
 //import DisplayCharacter from './DisplayCharacter';
 
 
 
 function App() {
-
-  
-  const [quote, setQuote] = React.useState("Get your Simpson's daily wisdom dose");
+  const [quote, setQuote] = useState("Get your Simpson's daily wisdom dose");
 
   function getApi() {
     axios
@@ -24,10 +24,14 @@ function App() {
       // console.log(data)
         //setQuote(data.quote)
         setQuote(data);
-       
       });
-  
   };
+
+  useEffect(() => {
+    getApi();
+  }, [])
+
+
 
   return (
     <div className="App">
