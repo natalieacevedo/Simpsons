@@ -10,14 +10,13 @@ import DisplayCharacter from './DisplayCharacter';
 function App() {
 
   
-
   const [quote, setQuote] = React.useState("Get your Simpson's daily wisdom dose");
 
   function getApi() {
     axios
       .get("https://simpsons-quotes-api.herokuapp.com/quotes")
       .then((response) => {
-        console.log(response)
+        //console.log(response)
         return response.data[0]
       })
       .then((data) => {
@@ -25,15 +24,10 @@ function App() {
       // console.log(data)
         //setQuote(data.quote)
         setQuote(data);
+       
       });
   
   };
-
-
-
-  
-  console.log(quote);
-
 
   return (
     <div className="App">
